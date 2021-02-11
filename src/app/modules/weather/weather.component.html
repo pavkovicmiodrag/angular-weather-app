@@ -1,0 +1,18 @@
+<mat-grid-list cols="5" rows="2" rowHeight="16rem">
+  <mat-grid-tile colspan="5">
+    <mat-list>
+      <mat-list-item>
+        <h3 matLine>{{ weathercastPeriod }}</h3>
+        <p matLine>
+          <span class="averageTemp">
+            {{ avarageTemperature }}
+            &#8451;</span
+          >
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let item of weatherDataList">
+    <weather-widget [item]="item"></weather-widget>
+  </mat-grid-tile>
+</mat-grid-list>

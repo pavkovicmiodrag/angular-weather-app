@@ -1,0 +1,3 @@
+exports = {
+  extends: "airbnb-typescript-prettier",
+};

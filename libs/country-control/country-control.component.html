@@ -1,0 +1,28 @@
+<mat-form-field>
+  <mat-icon
+    *ngIf="countryCodeSubject.getValue() != ''"
+    [svgIcon]="countryControl.value?.toLowerCase() || ''"
+    class="mr-12 s-20 secondary-text"
+    matSuffix
+  ></mat-icon>
+  <input
+    matInput
+    placeholder="Country"
+    aria-label="Country"
+    [matAutocomplete]="autoCountry"
+    [formControl]="countryControl"
+  />
+
+  <mat-autocomplete
+    #autoCountry="matAutocomplete"
+    (optionSelected)="onCountrySelected($event.option.value)"
+  >
+    <mat-option
+      *ngFor="let country of filteredCountries | async"
+      [value]="country.code"
+    >
+      <mat-icon [svgIcon]="country?.code?.toLowerCase() || ''"></mat-icon>
+      {{ country.name }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

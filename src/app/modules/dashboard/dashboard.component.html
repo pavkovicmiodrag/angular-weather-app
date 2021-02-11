@@ -1,0 +1,24 @@
+<div appHighlight class="container">
+  <color-picker></color-picker>
+
+  <mat-card>
+    <mat-toolbar color="primary">Select Location</mat-toolbar>
+    <app-country-control
+      #countryControl
+      (countryCode)="onCountryCodeSelected($event)"
+    >
+    </app-country-control>
+    <autocomplete-cities
+      [countryCode]="countryCode"
+      (selectCity)="getWeatherData($event)"
+    ></autocomplete-cities>
+  </mat-card>
+  <weather
+    *ngIf="weatherDatalist"
+    [weatherDataList]="weatherDatalist"
+    [avarageTemperature]="avarageTemperature"
+    [weathercastPeriod]="weathercastPeriod"
+    class="weather"
+  ></weather>
+</div>
+<div class="picker"></div>

@@ -8,6 +8,7 @@
     "strict": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "strictPropertyInitialization": false,
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -15,11 +16,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "module": "ESNext",
+    "lib": ["es2018", "dom"],
+    "types": ["googlemaps"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

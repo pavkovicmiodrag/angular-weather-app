@@ -1,0 +1,31 @@
+:host .gradient {
+  --gradient-color: linear-gradient(
+    to right,
+    red 0%,
+    #ff0 17%,
+    lime 33%,
+    cyan 50%,
+    blue 66%,
+    #f0f 83%,
+    red 100%;
+  );
+  background: var(--gradient-color);
+}
+.container {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  padding-top: 50px;
+  height: 100%;
+}
+.weather {
+  display: flex;
+  flex: auto;
+  background: none;
+  flex-direction: column;
+  height: 100%;
+}
+.mat-card {
+  width: 300px;
+  margin: 0 auto;
+}

@@ -1,0 +1,37 @@
+<mat-card class="card">
+  <mat-card-title class="title"
+    ><mat-icon>location_on</mat-icon><br />{{ item.city }}
+  </mat-card-title>
+  <mat-card-subtitle>{{ item.day }} {{ item.hour }}</mat-card-subtitle>
+  <mat-card-content>
+    <div class="main">
+      <img
+        src="http://openweathermap.org/img/wn/{{ item.icon }}.png"
+        class="icon"
+      />
+      <span class="temp"> {{ item.temperature }} &#8451;</span>
+    </div>
+    <div class="additional">
+      <span>{{ item.temp_min }} / {{ item.temp_max }}</span>
+      <span class="feels"> Feels like {{ item.feels_like }} &#8451;</span>
+    </div>
+    <div class="description">
+      <span>{{ item.description }}</span>
+    </div>
+  </mat-card-content>
+  <!-- <mat-list>
+    <mat-list-item>
+      <p matLine>
+        <span class="temp"> {{ item.temperature }} &#8451;</span>
+      </p>
+    </mat-list-item>
+    <mat-list-item>
+      <div mattLine>
+        <img
+          src="http://openweathermap.org/img/wn/{{ item.icon }}.png"
+          class="icon"
+        /><span>{{ item.description }}</span>
+      </div>
+    </mat-list-item>
+  </mat-list> -->
+</mat-card>
