@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AutocompleteCitiesModule } from './autocomplete-cities/autocomplete-cities.module';
 import { WeatherModule } from './weather/weather.module';
 import { CountryControlModule } from './country-control/country-control.module';
+import { GeoDbModule } from './geodb/geodb.module';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,10 @@ import { CountryControlModule } from './country-control/country-control.module';
     }),
     AutocompleteCitiesModule,
     CountryControlModule,
+    GeoDbModule.forRoot({
+      apiKey: '',
+      serviceUri: 'http://geodb-free-service.wirefreethought.com',
+    }),
   ],
   exports: [AutocompleteCitiesModule, CountryControlModule],
 })

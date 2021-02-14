@@ -1,5 +1,4 @@
 export function AutoUnsub() {
-  console.log('AutoUnsub');
   return function (constructor: any) {
     const orig = constructor.prototype.ngOnDestroy;
     constructor.prototype.ngOnDestroy = function () {

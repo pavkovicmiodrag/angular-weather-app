@@ -1,5 +1,4 @@
-export class RestConstants {
-
+export abstract class RestConstants {
   // The maximum paging limit to use when paging results.
   public static readonly MAX_PAGING_LIMIT = 5;
 

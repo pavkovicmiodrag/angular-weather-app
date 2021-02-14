@@ -57,8 +57,6 @@ export class WeatherService {
       ?.slice()
       .filter((el, index) => index % 8 === 0)
       .map((el) => {
-        console.log('Element ', el);
-
         return new Weather(
           el.dt,
           format(el.dt * 1000, 'EEEE').toUpperCase(),

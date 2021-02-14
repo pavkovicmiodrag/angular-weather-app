@@ -9,29 +9,17 @@
         src="http://openweathermap.org/img/wn/{{ item.icon }}.png"
         class="icon"
       />
-      <span class="temp"> {{ item.temperature }} &#8451;</span>
+      <span class="temp" [innerHTML]="item.temperature + CELSIUS"></span>
     </div>
     <div class="additional">
       <span>{{ item.temp_min }} / {{ item.temp_max }}</span>
-      <span class="feels"> Feels like {{ item.feels_like }} &#8451;</span>
+      <span
+        class="feels"
+        [innerHTML]="'Feels like ' + item.feels_like + CELSIUS"
+      ></span>
     </div>
     <div class="description">
       <span>{{ item.description }}</span>
     </div>
   </mat-card-content>
-  <!-- <mat-list>
-    <mat-list-item>
-      <p matLine>
-        <span class="temp"> {{ item.temperature }} &#8451;</span>
-      </p>
-    </mat-list-item>
-    <mat-list-item>
-      <div mattLine>
-        <img
-          src="http://openweathermap.org/img/wn/{{ item.icon }}.png"
-          class="icon"
-        /><span>{{ item.description }}</span>
-      </div>
-    </mat-list-item>
-  </mat-list> -->
 </mat-card>

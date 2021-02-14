@@ -4,10 +4,10 @@
       <mat-list-item>
         <h3 matLine>{{ weathercastPeriod }}</h3>
         <p matLine>
-          <span class="averageTemp">
-            {{ avarageTemperature }}
-            &#8451;</span
-          >
+          <span
+            class="averageTemp"
+            [innerHTML]="avarageTemperature + CELSIUS"
+          ></span>
         </p>
       </mat-list-item>
     </mat-list>

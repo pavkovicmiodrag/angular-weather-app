@@ -15,7 +15,7 @@
   display: flex;
   flex: auto;
   flex-direction: column;
-  padding-top: 50px;
+  padding-top: 3rem;
   height: 100%;
 }
 .weather {
@@ -26,6 +26,26 @@
   height: 100%;
 }
 .mat-card {
-  width: 300px;
   margin: 0 auto;
+}
+.header {
+  margin-bottom: 3rem;
+}
+.temp_wrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  font-variant: bold;
+}
+.temp_min {
+  position: absolute;
+  left: 1rem;
+  margin-top: 0.5rem;
+  color: darkblue;
+}
+.temp_max {
+  position: absolute;
+  right: 1rem;
+  margin-top: 0.5rem;
+  color: lightcoral;
 }

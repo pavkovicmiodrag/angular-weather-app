@@ -1,4 +1,4 @@
-export class AutoSuggestConstants {
+export abstract class AutoSuggestConstants {
   // The minimum number of characters the user must input before auto-suggestions kick in.
   public static readonly MIN_INPUT_LENGTH = 3;
 

@@ -1,7 +1,0 @@
-{
-  "**/v1/*": {
-    "target": "http://geodb-free-service.wirefreethought.com",
-    "secure": true,
-    "changeOrigin": true
-  }
-}

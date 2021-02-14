@@ -37,10 +37,6 @@ import { GeoDbModule } from 'libs/geodb/geodb.module';
     MatToolbarModule,
     FormsModule,
     ReactiveFormsModule,
-    GeoDbModule.forRoot({
-      apiKey: '',
-      serviceUri: 'http://geodb-free-service.wirefreethought.com',
-    }),
   ],
   exports: [AutocompleteCitiesComponent],
 })

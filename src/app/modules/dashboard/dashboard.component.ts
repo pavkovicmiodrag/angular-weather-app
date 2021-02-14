@@ -8,9 +8,10 @@ import { Weather } from '../weather/weather.model.';
 import { AutoUnsub } from 'libs/common/auto-unsubscribe.class';
 import { CountryControlComponent } from 'libs/country-control/country-control.component';
 import { ColorPickerComponent } from '../color-picker/color-picker.component';
+import { Constants } from '../shared/constants.util';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
@@ -28,34 +29,40 @@ export class DashboardComponent implements OnInit {
   countryControlComponent: CountryControlComponent;
 
   countryCode: string;
-  // Color picker is 1000px and temperature scale goes from  -50 to 50 Celsius degree.
-  // 1 Celsius is presented with 10px on color picker pallete (1000px/100 Celsius min max temperature difference).
-  GRADIENT_FACTOR: number = 10;
-  // TEMP_MIN Use to count X position starting from 0px.
-  // Since temperature start wit -50 Celsius degree to count position
-  // for given temperature we should use next formula:
-  // (temperature + minimal temperature) * GRADIENT_FACTOR
-  TEMP_MIN: number = 50;
-  // center height from 50px height
-  Y_POSITION: number = 25;
+
+  TEMP_MIN: number = Constants.TEMP_MIN;
+  TEMP_MAX: number = Constants.TEMP_MAX;
+  Y_POSITION: number = Constants.Y_POSITION;
+
+  WIDTH: number = Constants.WIDTH;
+  CELSIUS = Constants.CELSIUS;
 
   weatherObservable: Observable<WeatherSummary> = of();
   backgroundColor1: string;
   backgroundColor2: string;
+  colorValue: number;
+  temperature: number;
 
   constructor(private weatherService: WeatherService) {}
 
   ngOnInit(): void {}
 
   setBackgroundColor(temperature: number) {
-    // Starting color for  linear-gradient
+    // gradientFactor represent width for 1 Celsius on color picker.
+    const gradientFactor = this.WIDTH / (this.TEMP_MAX - this.TEMP_MIN);
+    // X_POS position is equal to temperature + absolute value of min temperature,
+    // since min temperature starts at 0.
+    const X_POS = temperature + Math.abs(this.TEMP_MIN);
+    this.temperature = temperature;
+    this.colorValue = ((X_POS * gradientFactor) / this.WIDTH) * 100;
+    // Starting stop color for linear-gradient
     this.backgroundColor1 = this.colorPicker.getColorAtPosition(
-      (temperature + this.TEMP_MIN) * this.GRADIENT_FACTOR,
+      X_POS * gradientFactor,
       this.Y_POSITION
     );
-    // Ending  color for linear-gradient
+    // Ending stop color for linear-gradient, take the next color from color picker
     this.backgroundColor2 = this.colorPicker.getColorAtPosition(
-      (temperature + this.TEMP_MIN) * (this.GRADIENT_FACTOR + 1),
+      X_POS * (gradientFactor + 1),
       this.Y_POSITION
     );
     this.updateBackground(this.backgroundColor1, this.backgroundColor2);
